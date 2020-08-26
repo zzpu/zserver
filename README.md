@@ -28,3 +28,5 @@ TCP over WebSocket
 1. 在本地打开ztun客户端
 1. 填写监听端口和ztun的WebSocket地址
 1. 测试连接
+
+![image](./ztun.gif)
