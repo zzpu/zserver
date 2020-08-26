@@ -14,7 +14,7 @@ function iosbuild() {
 }
 
 function dockerBuild() {
-    docker build --build-arg  -t $imageName .
+    docker build  -t $imageName .
     echo "dev docker build success"
 }
 
