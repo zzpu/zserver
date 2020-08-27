@@ -22,28 +22,28 @@ TCP over WebSocket
 [tcp客户端，如secureCRT]
 ```
 ## 构建方法
-1. docker 构建
+* docker 构建
 ```yaml
 sh build.sh dockerDeploy
 ```
-1. 直接构建
+* 直接构建
 ```yaml
 go build cmd/main.go -o zserver
 ```
 ## 用法
 
-1. 在tcp服务器端运行(默认端口8000) 
+* 在tcp服务器端运行(默认端口8000) 
 ```
 ./zserver -conf configs/
 ```
-1. 在本地打开ztun客户端
+* 在本地打开ztun客户端
 ```yaml
 ./ztun
 ```
-1. 填写监听端口和ztun的WebSocket地址,保存
-1. 测试连接
+* 填写监听端口和ztun的WebSocket地址,保存
+* 测试连接
 
-## niginx配置实例
+## nginx配置实例
 ```yaml
 upstream websocket {
     server 127.0.0.1:8000;
