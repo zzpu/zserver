@@ -28,8 +28,11 @@ var (
 func TailFile(conn *websocket.Conn, fileName string) {
 	t, err := tail.TailFile(fileName,
 		tail.Config{
+			ReOpen: true,
 			Follow: true,
+			Poll:   true, //FIX 不能及时跟踪日志
 			Location: &tail.SeekInfo{
+				Offset: -1000,
 				Whence: os.SEEK_END,
 			},
 		})
