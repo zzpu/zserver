@@ -79,7 +79,7 @@ func ssh(ctx *bm.Context) {
 
 	log.Info("addr=%v", addr)
 
-	tcp, err := net.Dial("tcp", string(addr))
+	tcp, err := net.Dial("tcp", addr)
 	if err != nil {
 		log.Error("net.Dial,err=%v", err)
 		return
