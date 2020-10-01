@@ -9,11 +9,11 @@ COPY go.sum .
 RUN go mod download
 
 COPY . .
-RUN CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -a -o zserver cmd/main.go
+RUN CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build  -ldflags "-s -w" -a -o zserver cmd/main.go
 
-FROM alpine:latest
+FROM alpine:latest AS final
 COPY ./configs /data/zserver/configs
-COPY ./zserver /data/zserver/zserver
+COPY --from=builder /build/zserver /data/zserver/zserver
 WORKDIR /data/zserver
 
 RUN apk update \
